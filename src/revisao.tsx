@@ -12,12 +12,32 @@ function Revisao():JSX.Element{
     function trataInput2(e:ChangeEvent<HTMLInputElement>){
         setB(Number(e.target.value))
     }
+
+    // Faça uma função que a partir dos 2 campus de input
+    // Crie uma string com a sequencia dos números:
+
+    //EX: listaNumeros(10,15) 
+    //retorno "10,11,12,13,14,15,"
+
+    function listaNumeros(a1:number,b1:number):string{
+        let lista:string = ""
+        //Fazer um processamento dos números
+        //let str = "10,"
+        let i = a1
+        while(i<=b1){
+            lista = lista.concat(String(i)+",")
+            i++
+        }
+        return lista
+    }
+
+
     return( 
         <>
             <h1>Componente</h1>
             <input type="number" onChange={trataInput1}/>
             <input type="number" onChange={trataInput2}/>
-            <h1>{soma(a,b)}</h1>
+            <h1>{listaNumeros(a,b)}</h1>
         </>
     )
 }
