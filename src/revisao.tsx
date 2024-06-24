@@ -1,22 +1,23 @@
-type P ={
-    nome: string;
-    idade: number;
-    cpf: string;
-}
+import { ChangeEvent, useState } from "react";
+
 function Revisao():JSX.Element{
-    const a:number = 10
-    const b: number[] = [10,20,30]
-    const pessoa:P  = {
-        nome:"Tere",
-        idade:29,
-        cpf:"123.123.123-12"
+    const [a,setA] = useState(0)
+    const [b,setB] = useState(0)
+    function soma(a:number,b:number):number{
+        return a+b
+    }
+    function trataInput1(e:ChangeEvent<HTMLInputElement>){
+        setA(Number(e.target.value))
+    }
+    function trataInput2(e:ChangeEvent<HTMLInputElement>){
+        setB(Number(e.target.value))
     }
     return( 
         <>
             <h1>Componente</h1>
-            {pessoa.nome}
-            {pessoa.idade}
-            {pessoa.cpf}
+            <input type="number" onChange={trataInput1}/>
+            <input type="number" onChange={trataInput2}/>
+            <h1>{soma(a,b)}</h1>
         </>
     )
 }
